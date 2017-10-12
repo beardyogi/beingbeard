@@ -12,12 +12,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @SWG\Swagger(
  *	@SWG\Info(
  *		version="0.1",
- *		title="CI Bootstrap 3 API",
+ *		title="Being Beard",
  *		description="API Documentation",
  *		termsOfService="",
  *		@SWG\Contact(
- *			name="CI Bootstrap 3",
- *			email="info@email.com"
+ *			name="Beard Yogi",
+ *			email="umasankararavind@gmail.com"
  *		)
  *	),
  * 	schemes={"http"},

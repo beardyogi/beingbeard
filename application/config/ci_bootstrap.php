@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $config['ci_bootstrap'] = array(
 
 	// Site name
-	'site_name' => 'CI Bootstrap 3',
+		'site_name' => 'Being Beard',
 
 	// Default page title prefix
 	'page_title_prefix' => '',
@@ -25,9 +25,9 @@ $config['ci_bootstrap'] = array(
 
 	// Default meta data
 	'meta_data'	=> array(
-		'author'		=> '',
-		'description'	=> '',
-		'keywords'		=> ''
+		'author'		=> 'Beard Yogi',
+		'description'	=> 'World Of Men',
+		'keywords'		=> 'Being Beard Men World'
 	),
 
 	// Default scripts to embed at page head or end
@@ -51,30 +51,7 @@ $config['ci_bootstrap'] = array(
 	// Default CSS class for <body> tag
 	'body_class' => '',
 	
-	// Multilingual settings
-	'languages' => array(
-		'default'		=> 'en',
-		'autoload'		=> array('general'),
-		'available'		=> array(
-			'en' => array(
-				'label'	=> 'English',
-				'value'	=> 'english'
-			),
-			'zh' => array(
-				'label'	=> '繁體中文',
-				'value'	=> 'traditional-chinese'
-			),
-			'cn' => array(
-				'label'	=> '简体中文',
-				'value'	=> 'simplified-chinese'
-			),
-			'es' => array(
-				'label'	=> 'Español',
-				'value' => 'spanish'
-			)
-		)
-	),
-
+	
 	// Google Analytics User ID
 	'ga_id' => '',
 
@@ -112,7 +89,12 @@ $config['ci_bootstrap'] = array(
 		'profiler'	=> FALSE
 	),
 );
-
+/*
+	| -------------------------------------------------------------------------
+	| Configuration for API Site only
+	| -------------------------------------------------------------------------
+	*/
+	
 /*
 | -------------------------------------------------------------------------
 | Override values from /application/config/config.php

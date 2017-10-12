@@ -103,7 +103,7 @@ if (!(PHP_SAPI === 'cli' OR defined('STDIN')))
 	define('API_HOST', $_SERVER['HTTP_HOST'].dirname($_SERVER['SCRIPT_NAME']));
 }
 
-define('CI_BOOTSTRAP_REPO',			'https://github.com/waifung0207/ci_bootstrap_3');
+define('CI_BOOTSTRAP_REPO',			'https://github.com/Aravindumasankar/backdoor');
 define('CI_BOOTSTRAP_VERSION',		'Build 20161209');	// will follow semantic version (e.g. v1.x.x) after first stable launch
 
 // Upload paths

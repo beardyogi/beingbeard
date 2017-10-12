@@ -12,13 +12,6 @@ class Misc extends API_Controller {
 	 * 	path="/misc/cover_photos",
 	 * 	tags={"misc"},
 	 * 	summary="List out cover photos",
-	 * 	@SWG\Parameter(
-	 * 		in="header",
-	 * 		name="X-API-KEY",
-	 * 		description="API Key",
-	 * 		required=true,
-	 * 		type="string"
-	 * 	),
 	 * 	@SWG\Response(
 	 * 		response="200",
 	 * 		description="Cover Photo array",
@@ -29,8 +22,8 @@ class Misc extends API_Controller {
 	public function cover_photos_get()
 	{
 		$this->load->model('cover_photo_model', 'cover_photos');
-		$where = array('status' => 'active');
-		$data = $this->cover_photos->get_many_by($where);
+		$where = array('status' => '1');
+		$data = $this->cover_photos->get_all('$where');
 		$this->response($data);
 	}
 }

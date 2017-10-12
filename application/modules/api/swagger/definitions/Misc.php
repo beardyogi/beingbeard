@@ -23,21 +23,4 @@ class CoverPhoto {
 	 */
 	public $id;
 
-	/**
-	 * @var int
-	 * @SWG\Property()
-	 */
-	public $pos;
-
-	/**
-	 * @var string
-	 * @SWG\Property()
-	 */
-	public $image_url;
-
-	/**
-	 * @var string
-	 * @SWG\Property(enum={"active", "hidden"})
-	 */
-	public $status;
 }

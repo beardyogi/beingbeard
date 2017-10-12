@@ -39,6 +39,12 @@ class AuthSignUp {
 	 * @SWG\Property()
 	 */
 	public $last_name;
+
+	/**
+	 * @var int
+	 * @SWG\Property()
+	 */
+	public $group_id;
 }
 
 /**

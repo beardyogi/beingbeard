@@ -31,7 +31,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
  * @SWG\Tag(
- *   name="dummy",
- *   description="Dummy endpoints"
+ *   name="auth",
+ *   description="User Auth"
  * )
  */
+
+ 

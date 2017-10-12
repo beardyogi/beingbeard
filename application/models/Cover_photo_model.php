@@ -2,7 +2,7 @@
 
 class Cover_photo_model extends MY_Model {
 
-	protected $where = array('status' => 'active');
+	/*protected $where = array('status' => 'active');
 	protected $order_by = array('pos', 'ASC');
-	protected $upload_fields = array('image_url' => UPLOAD_COVER_PHOTO);
+	protected $upload_fields = array('image_url' => UPLOAD_COVER_PHOTO);*/
 }
