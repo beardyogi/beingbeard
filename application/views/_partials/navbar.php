@@ -1,52 +1,27 @@
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-<div class="container">
 
-	<div class="navbar-header">
-		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-			<span class="sr-only">Toggle navigation</span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		</button>
-		<a class="navbar-brand" href=""><?php echo $site_name; ?></a>
-	</div>
-
-	<div class="navbar-collapse collapse">
-
-		<ul class="nav navbar-nav">
-			<?php foreach ($menu as $parent => $parent_params): ?>
-
-				<?php if (empty($parent_params['children'])): ?>
-
-					<?php $active = ($current_uri==$parent_params['url'] || $ctrler==$parent); ?>
-					<li <?php if ($active) echo 'class="active"'; ?>>
-						<a href='<?php echo $parent_params['url']; ?>'>
-							<?php echo $parent_params['name']; ?>
-						</a>
-					</li>
-
-				<?php else: ?>
-
-					<?php $parent_active = ($ctrler==$parent); ?>
-					<li class='dropdown <?php if ($parent_active) echo 'active'; ?>'>
-						<a data-toggle='dropdown' class='dropdown-toggle' href='#'>
-							<?php echo $parent_params['name']; ?> <span class='caret'></span>
-						</a>
-						<ul role='menu' class='dropdown-menu'>
-							<?php foreach ($parent_params['children'] as $name => $url): ?>
-								<li><a href='<?php echo $url; ?>'><?php echo $name; ?></a></li>
-							<?php endforeach; ?>
-						</ul>
-					</li>
-
-				<?php endif; ?>
-
-			<?php endforeach; ?>
-		</ul>
-
-		<?php $this->load->view('_partials/language_switcher'); ?>
-		
-	</div>
+<!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Being Beard</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#download">Download</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#features">How Does it Work?</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
 </div>
 </nav>

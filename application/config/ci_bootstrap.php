@@ -5,9 +5,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | -------------------------------------------------------------------------
 | CI Bootstrap 3 Configuration
 | -------------------------------------------------------------------------
-| This file lets you define default values to be passed into views 
-| when calling MY_Controller's render() function. 
-| 
+| This file lets you define default values to be passed into views
+| when calling MY_Controller's render() function.
+|
 | See example and detailed explanation from:
 | 	/application/config/ci_bootstrap_example.php
 */
@@ -35,23 +35,32 @@ $config['ci_bootstrap'] = array(
 		'head'	=> array(
 		),
 		'foot'	=> array(
-			'assets/dist/frontend/lib.min.js',
-			'assets/dist/frontend/app.min.js'
+			'assets/dist/frontend/jquery.min.js',
+			'assets/dist/frontend/popper.min.js',
+			'assets/dist/frontend/bootstrap.min.js',
+			'assets/dist/frontend/jquery.easing.min.js',
+			'assets/dist/frontend/custom.js',
 		),
 	),
+
 
 	// Default stylesheets to embed at page head
 	'stylesheets' => array(
 		'screen' => array(
-			'assets/dist/frontend/lib.min.css',
-			'assets/dist/frontend/app.min.css'
-		)
+			'assets/dist/frontend/bootstrap.min.css',
+			'assets/dist/frontend/bootstrap-grid.min.css',
+			'assets/dist/frontend/bootstrap-reboot.min.css',
+			'assets/dist/frontend/font-awesome.min.css',
+			'assets/dist/frontend/styles.css',
+			'assets/dist/frontend/device-mockups/device-mockups.min.css',
+
+		),
 	),
 
 	// Default CSS class for <body> tag
-	'body_class' => '',
-	
-	
+	'body_class' => 'page-top',
+
+
 	// Google Analytics User ID
 	'ga_id' => '',
 
@@ -75,7 +84,7 @@ $config['ci_bootstrap'] = array(
 		'from_email'		=> '',
 		'from_name'			=> '',
 		'subject_prefix'	=> '',
-		
+
 		// Mailgun HTTP API
 		'mailgun_api'		=> array(
 			'domain'			=> '',
@@ -94,7 +103,7 @@ $config['ci_bootstrap'] = array(
 	| Configuration for API Site only
 	| -------------------------------------------------------------------------
 	*/
-	
+
 /*
 | -------------------------------------------------------------------------
 | Override values from /application/config/config.php
