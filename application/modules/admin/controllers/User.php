@@ -63,7 +63,7 @@ class User extends Admin_Controller {
 			);
 
 			// proceed to create user
-			$user_id = $this->ion_auth->register($identity, $password, $email, $additional_data, $groups);			
+			$user_id = $this->ion_auth->register($identity, $password, $email, $additional_data, $groups);
 			if ($user_id)
 			{
 				// success
@@ -110,7 +110,7 @@ class User extends Admin_Controller {
 		{
 			// pass validation
 			$data = array('password' => $this->input->post('new_password'));
-			
+
 			// [IMPORTANT] override database tables to update Frontend Users instead of Admin Users
 			$this->ion_auth_model->tables = array(
 				'users'				=> 'users',

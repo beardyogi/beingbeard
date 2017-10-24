@@ -62,7 +62,7 @@ $config['ci_bootstrap'] = array(
 
 
 	// Google Analytics User ID
-	'ga_id' => '',
+	'ga_id' => 'UA-108466252-1',
 
 	// Menu items
 	'menu' => array(

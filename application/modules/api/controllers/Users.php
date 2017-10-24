@@ -5,100 +5,124 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * Demo Controller with Swagger annotations
  * Reference: https://github.com/zircote/swagger-php/
  */
-class Users extends API_Controller {
+
+/**
+ * [IMPORTANT]
+ * 	To allow API access without API Key ("X-API-KEY" from HTTP Header),
+ * 	remember to add routes from /application/modules/api/config/rest.php like this:
+ * 		$config['auth_override_class_method']['dummy']['*'] = 'none';
+ */
+class User extends API_Controller {
 
 	/**
-	 * @SWG\Get(
-	 * 	path="/users",
+	 * @SWG\Post(
+	 * 	path="/user/create",
 	 * 	tags={"user"},
-	 * 	summary="List out users",
-	 * 	@SWG\Parameter(
-	 * 		in="header",
-	 * 		name="X-API-KEY",
-	 * 		description="API Key",
-	 * 		required=false,
-	 * 		type="string"
-	 * 	),
-	 * 	@SWG\Response(
-	 * 		response="200",
-	 * 		description="List of users",
-	 * 		@SWG\Schema(type="array", @SWG\Items(ref="#/definitions/User"))
-	 * 	)
-	 * )
-	 */
-	public function index_get()
-	{
-		$data = $this->users
-			->select('id, username, email, active, first_name, last_name')
-			->get_all();
-		$this->response($data);
-	}
-
-	/**
-	 * @SWG\Get(
-	 * 	path="/users/{id}",
-	 * 	tags={"user"},
-	 * 	summary="Look up a user",
-	 * 	@SWG\Parameter(
-	 * 		in="path",
-	 * 		name="id",
-	 * 		description="User ID",
-	 * 		required=true,
-	 * 		type="integer"
-	 * 	),
-	 * 	@SWG\Response(
-	 * 		response="200",
-	 * 		description="User object",
-	 * 		@SWG\Schema(ref="#/definitions/User")
-	 * 	),
-	 * 	@SWG\Response(
-	 * 		response="404",
-	 * 		description="Invalid user ID"
-	 * 	)
-	 * )
-	 */
-	public function id_get($id)
-	{
-		$data = $this->users
-			->select('id, username, email, active, first_name, last_name')
-			->get($id);
-		$this->response($data);
-	}
-
-	/**
-	 * @SWG\Put(
-	 * 	path="/users/{id}",
-	 * 	tags={"user"},
-	 * 	summary="Update an existing user",
-	 * 	@SWG\Parameter(
-	 * 		in="path",
-	 * 		name="id",
-	 * 		description="User ID",
-	 * 		required=true,
-	 * 		type="integer"
-	 * 	),
-	 * 	@SWG\Parameter(
+	 * 	summary="Create User",
+	 * @SWG\Parameter(
 	 * 		in="body",
 	 * 		name="body",
 	 * 		description="User info",
 	 * 		required=true,
-	 * 		@SWG\Schema(ref="#/definitions/UserPut")
+	 * 		@SWG\Schema(ref="#/definitions/UserSignUp")
 	 * 	),
 	 * 	@SWG\Response(
 	 * 		response="200",
-	 * 		description="Successful operation"
+	 * 		description="Create User",
 	 * 	)
 	 * )
 	 */
-	// TODO: user should be able to update their own account only
-	public function id_put($id)
+	public function create_post()
 	{
-		$data = elements(array('first_name', 'last_name'), $this->put());
+			$this->load->model('User_model');
+			if ($_SERVER['REQUEST_METHOD'] == 'POST' && empty($_POST)){
+			$data = json_decode(file_get_contents('php://input'), true);
+			$username = $data['username'];
+			$email = $data['email'];
+			$password = $data['password'];
+			$identity = empty($username) ? $email : $username;
+			$additional_data = array(
+				'first_name'	=> $data['first_name'],
+			);
+			}
+			else{
+			$data = elements(array('username','email','password','first_name','last_name'), $this->post());
+			// passed validation
+			$username = $data['username'];
+			$email = $data['email'];
+			$password = $data['password'];
+			$identity = empty($username) ? $email : $username;
+			$additional_data = array(
+				'first_name'	=> $data['first_name'],
+			);
+			}
 
-		// proceed to update user
-		$updated = $this->ion_auth->update($id, $data);
+			$check_user = $this->User_model->checkUser($data);
+			if($check_user == 'user_exists'){
+				$result['status'] = "false";
+				$result['message'] = "user already exist";
+				$this->response($result);
+			}
+			else{
+			$result['status'] = "true";
+			$result['message'] = "account created successfully";
+			$user_id = $this->ion_auth->register($identity, $password, $email, $additional_data, $groups = array());
+			$this->response($result);
+			}
 
-		// result
-		($updated) ? $this->success($this->ion_auth->messages()) : $this->error($this->ion_auth->errors());
+
 	}
+
+	/**
+	 * @SWG\Post(
+	 * 	path="/user/login",
+	 * 	tags={"user"},
+	 * 	summary="Login User",
+	 * @SWG\Parameter(
+	 * 		in="body",
+	 * 		name="body",
+	 * 		description="User Credentials",
+	 * 		required=true,
+	 * 		@SWG\Schema(ref="#/definitions/UserLogin")
+	 * 	),
+	 * 	@SWG\Response(
+	 * 		response="200",
+	 * 		description="Login User",
+	 * 	)
+	 * )
+	 */
+	public function login_post(){
+
+		if ($_SERVER['REQUEST_METHOD'] == 'POST' && empty($_POST)){
+			$data = json_decode(file_get_contents('php://input'), true);
+			$identity =$data['identity'];
+			$password =$data['password'];
+		}
+    	else{
+			$identity =$this->post('identity');
+			$password =$this->post('password');
+		}
+		//$this->load->model('User_model');
+			if ($this->ion_auth->login($identity, $password, $remember=FALSE))
+			{
+				// login succeed
+				$response['id']=$this->ion_auth->user()->row()->id;
+				$response['email']=$this->ion_auth->user()->row()->email;
+				$response['username']=$this->ion_auth->user()->row()->username;
+				$response['first_name']=$this->ion_auth->user()->row()->first_name;
+				$response['last_login']=$this->ion_auth->user()->row()->last_login;
+				$response['status'] = 'true';
+				$response['msg'] = $this->ion_auth->messages();
+			}
+			else
+			{
+				// login failed
+				$response['status'] = 'false';
+				$response['msg'] = $this->ion_auth->errors();
+			}
+			$this->response($response);
+
+	}
+
+
 }

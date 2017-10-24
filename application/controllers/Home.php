@@ -8,6 +8,7 @@ class Home extends MY_Controller {
 
 	public function index()
 	{
-		$this->render('home', 'full_width');
+		$this->mPageTitle = "Welocme to World's First Beard School";
+		$this->render('home','full_width');
 	}
 }

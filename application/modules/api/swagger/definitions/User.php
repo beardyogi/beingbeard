@@ -14,16 +14,9 @@ namespace MySwaggerDefinitions;
 /**
  * @SWG\Definition()
  */
-class User {
+class UserSignUp {
 
-	/**
-	 * Unique ID
-	 * @var int
-	 * @SWG\Property()
-	 */
-	public $id;
-
-	/**
+    /**
 	 * @var string
 	 * @SWG\Property()
 	 */
@@ -39,6 +32,12 @@ class User {
 	 * @var string
 	 * @SWG\Property()
 	 */
+	public $password;
+
+	/**
+	 * @var string
+	 * @SWG\Property()
+	 */
 	public $first_name;
 
 	/**
@@ -48,26 +47,81 @@ class User {
 	public $last_name;
 
 	/**
-	 * @var string
-	 * @SWG\Property(enum={"pending", "blacklisted"})
+	 * @var int
+	 * @SWG\Property()
 	 */
-	public $status;
+	public $phone;
 }
 
 /**
  * @SWG\Definition()
  */
-class UserPut {
+class UserActivate {
 
 	/**
 	 * @var string
 	 * @SWG\Property()
 	 */
-	public $first_name;
+	public $id;
 
 	/**
 	 * @var string
 	 * @SWG\Property()
 	 */
-	public $last_name;
+	public $code;
+}
+
+/**
+ * @SWG\Definition()
+ */
+class UserLogin {
+
+	/**
+	 * @var string
+	 * @SWG\Property()
+	 */
+	public $identity;
+
+
+	/**
+	 * @var string
+	 * @SWG\Property()
+	 */
+	public $password;
+}
+
+/**
+ * @SWG\Definition()
+ */
+class UserForgotPassword {
+
+	/**
+	 * @var string
+	 * @SWG\Property()
+	 */
+	public $email;
+}
+
+/**
+ * @SWG\Definition()
+ */
+class UserResetPassword {
+
+	/**
+	 * @var string
+	 * @SWG\Property()
+	 */
+	public $code;
+
+	/**
+	 * @var string
+	 * @SWG\Property()
+	 */
+	public $password;
+
+	/**
+	 * @var string
+	 * @SWG\Property()
+	 */
+	public $password_confirm;
 }
