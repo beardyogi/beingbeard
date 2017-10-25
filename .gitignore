@@ -28,3 +28,4 @@ application/congig/database.php
 ### SQL backup files ###
 sql/backup/*
 sql/backup/!index.html
+/application/config/database.php
