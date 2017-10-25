@@ -97,8 +97,8 @@ $config['ci_bootstrap'] = array(
 
 	// Debug tools
 	'debug' => array(
-		'view_data'	=> TRUE,
-		'profiler'	=> TRUE
+		'view_data'	=> FALSE,
+		'profiler'	=> FALSE
 	),
 );
 /*
