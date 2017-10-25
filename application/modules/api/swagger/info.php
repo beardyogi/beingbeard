@@ -12,11 +12,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @SWG\Swagger(
  *	@SWG\Info(
  *		version="0.1",
- *		title="Being Beard",
+ *		title="Being Weird",
  *		description="API Documentation",
  *		termsOfService="",
  *		@SWG\Contact(
- *			name="Beard Yogi",
+ *			name="Aravind Umasankar",
  *			email="umasankararavind@gmail.com"
  *		)
  *	),

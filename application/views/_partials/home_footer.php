@@ -1,4 +1,4 @@
-<footer class="fixed-bottom">
+<footer>
       <div class="container">
         <p>&copy;<strong><?php echo date('Y'); ?></strong> www.beingbeard.com. All Rights Reserved.</p>
         <ul class="list-inline">

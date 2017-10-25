@@ -10,30 +10,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
  * @SWG\Tag(
+ *   name="category",
+ *   description="Weird Categories"
+ * )
+ */
+
+ /**
+ * @SWG\Tag(
  *   name="user",
- *   description="Everything about users"
+ *   description="Weird Users"
  * )
  */
 
-/**
- * @SWG\Tag(
- *   name="blog",
- *   description="Blog system"
- * )
- */
 
-/**
- * @SWG\Tag(
- *   name="misc",
- *   description="Miscellaneous"
- * )
- */
 
-/**
- * @SWG\Tag(
- *   name="auth",
- *   description="User Auth"
- * )
- */
-
- 

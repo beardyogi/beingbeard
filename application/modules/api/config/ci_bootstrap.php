@@ -15,18 +15,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $config['ci_bootstrap'] = array(
 
 	// Site name
-	'site_name' => 'API Doc',
+	'site_name' => 'Being Weird Api',
 
 	// Default page title prefix
 	'page_title_prefix' => '',
 
 	// Default page title
-	'page_title' => '',
+	'page_title' => 'Welcome',
 	
 	// Default meta data
 	'meta_data'	=> array(
-		'author'		=> '',
-		'description'	=> '',
+		'author'		=> 'Aravind Umasankar',
+		'description'	=> 'Swagger Being Weird',
 		'keywords'		=> ''
 	),
 

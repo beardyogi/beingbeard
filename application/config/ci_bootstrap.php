@@ -73,10 +73,13 @@ $config['ci_bootstrap'] = array(
 	),
 
 	// Login page
-	'login_url' => '',
+	'login_url' => 'auth/login',
 
 	// Restricted pages
 	'page_auth' => array(
+		// Example: Frontend Website pages for registered users
+		'dashboard'					=> array('members'),
+		'account'					=> array('members'),
 	),
 
 	// Email config
@@ -94,8 +97,8 @@ $config['ci_bootstrap'] = array(
 
 	// Debug tools
 	'debug' => array(
-		'view_data'	=> FALSE,
-		'profiler'	=> FALSE
+		'view_data'	=> TRUE,
+		'profiler'	=> TRUE
 	),
 );
 /*
