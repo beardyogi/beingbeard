@@ -20,14 +20,14 @@ class Auth extends MY_Controller {
 		{
 			// login succeed
 			$messages = $this->ion_auth->messages();
-			$this->mViewData['messages'] = $message;
+			//$this->mViewData['messages'] = $message;
 			redirect('/trending');
 		}
 		else
 		{
 			// login failed
 			$messages = $this->ion_auth->errors();
-			$this->mViewData['messages'] = $message;
+			//$this->mViewData['messages'] = $message;
 			redirect('auth');
 
 		}
