@@ -6,7 +6,7 @@
           <div class="col-lg-7 my-auto">
             <div class="header-content mx-auto">
               <h1 class="mb-5">To be happy is to have a Beard! Welcome to World's First Beard School. </h1>
-              <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger">Find Inner Peace!</a>
+              <a href="<?php echo $base_url.'trending' ?>" class="btn btn-outline btn-xl js-scroll-trigger">Try Out!</a>
             </div>
           </div>
           <div class="col-lg-5 my-auto">
