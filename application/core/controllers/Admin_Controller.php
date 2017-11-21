@@ -28,7 +28,7 @@ class Admin_Controller extends MY_Controller {
 	{
 		// load skin according to user role
 		$config = $this->mConfig['adminlte'];
-		$this->mBodyClass = $config['body_class'][$this->mUserMainGroup];
+		//$this->mBodyClass = $config['body_class'][$this->mUserMainGroup];
 
 		// additional view data
 		$this->mViewData['useful_links'] = $this->mUsefulLinks;
@@ -77,7 +77,7 @@ class Admin_Controller extends MY_Controller {
 		$this->mCrud = $crud;
 		return $crud;
 	}
-	
+
 	// Set field(s) to color picker
 	protected function set_crud_color_picker()
 	{
@@ -144,7 +144,7 @@ class Admin_Controller extends MY_Controller {
 		$crud_obj_name = strtolower(get_class($this->mCrud));
 		if ($crud_obj_name==='grocery_crud')
 		{
-			$this->mCrud->unset_fields($this->mCrudUnsetFields);	
+			$this->mCrud->unset_fields($this->mCrudUnsetFields);
 		}
 
 		// render CRUD

@@ -47,6 +47,9 @@ section {
   padding: 100px 0; }
   section h2 {
     font-size: 50px; }
+.no-pad{
+  padding: 0px !important;
+}
 #mainNav {
   border-color: rgba(34, 34, 34, 0.05);
   background-color: white;
@@ -529,3 +532,16 @@ width: 100%; }
         padding-top:10px;
     }
   /*login Page*/
+
+  /*Campaign Detail Page*/
+  .campaign-img {
+    padding: 15px;
+    width: 100%;
+  }
+    .card-info {
+    margin-top: 5%;
+  }
+    .like{
+
+    }
+  /*Campaign Detail Page*/

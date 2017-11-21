@@ -869,7 +869,7 @@ class Ion_auth_model extends CI_Model
 
 		$manual_activation = $this->config->item('manual_activation', 'ion_auth');
 
-		if ($this->identity_check($identity))
+		if ($this->identity_check($email))
 		{
 			$this->set_error('account_creation_duplicate_identity');
 			return FALSE;
@@ -898,7 +898,7 @@ class Ion_auth_model extends CI_Model
 
 		// Users table.
 		$data = array(
-		    $this->identity_column   => $identity,
+		    $this->identity_column   => $email,
 		    'username'   => $identity,
 		    'password'   => $password,
 		    'email'      => $email,

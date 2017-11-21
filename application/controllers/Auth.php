@@ -42,4 +42,24 @@ class Auth extends MY_Controller {
 		redirect('home', 'refresh');
 	}
 
+	public function signup()
+	{
+		$email = $this->input->post('email');
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
+		$first_name = $this->input->post('first_name');
+		$last_name = $this->input->post('last_name');
+		$additional_data = array(
+								'first_name' => '$first_name',
+								'last_name' => '$last_name',
+								);
+		$group = array('1');
+		if($this->ion_auth->register($username, $password, $email, $additional_data, $group)){
+			redirect('auth');
+		}else{
+			$messages = $this->ion_auth->errors();
+			redirect('auth');
+		}
+	}
+
 }

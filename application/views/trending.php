@@ -14,7 +14,7 @@
                   <div class="card-content">
                       <span class="card-title"><?php echo $key['campaign_name'] ?></span>
                       <?php if ($this->ion_auth->logged_in()){?>
-                      <a href="<?php echo $base_url.'campaign/detail?id='.$key['id']?>"><button type="button" id="<?php echo strtolower($key['campaign_name']) ?>" class="btn btn-warning pull-right" aria-label="Left Align">
+                      <a href="<?php echo $base_url.'campaigns/detail?campaign_id='.$key['id']?>"><button type="button" id="<?php echo strtolower($key['campaign_name']) ?>" class="btn btn-warning pull-right" aria-label="Left Align">
                           Try
                       </button></a>
                     <?php }else{ ?>

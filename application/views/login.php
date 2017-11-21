@@ -32,13 +32,13 @@
         </div>
         <div id="sectionB" class="tab-pane fade">
 			<div class="innter-form">
-            <form class="sa-innate-form signup_form" method="post">
+            <form class="sa-innate-form signup_form" method="post" action="<?php echo $base_url.'auth/signup'?>">
             <label>First Name</label>
             <input type="text" name="firstname" required >
 						<label>Last Name</label>
             <input type="text" name="lastname" required >
-            <label>Email Address</label>
-            <input type="text" name="username" required>
+            <label>Email</label>
+            <input type="text" name="email" required>
             <label>Password</label>
             <input type="password" name="password" required>
             <button type="submit">Join now</button>
