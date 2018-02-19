@@ -74,7 +74,8 @@ $config['ci_bootstrap'] = array(
 			'url'		=> 'feeds',
 			'icon'		=> 'fa fa-thumbs-up',
 			'children'  => array(
-				'List'			=> 'feeds/source',
+				'Items'			=> 'feeds',
+				'Config'			=> 'feeds/source',
 			)
 		),
 		'user' => array(
