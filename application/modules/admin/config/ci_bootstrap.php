@@ -69,6 +69,11 @@ $config['ci_bootstrap'] = array(
 			'url'		=> 'campaigns',
 			'icon'		=> 'fa fa-thumbs-up',
 		),
+		'feeds' => array(
+			'name'		=> 'Feeds',
+			'url'		=> 'feeds',
+			'icon'		=> 'fa fa-thumbs-up',
+		),
 		'user' => array(
 			'name'		=> 'Users',
 			'url'		=> 'user',

@@ -275,7 +275,9 @@ text-align: center;
 color: rgba(255, 255, 255, 0.3);
 background-color: #222222;
 bottom: 0px;
-width: 100%; }
+width: 100%;
+position: fixed;
+}
   footer p {
     font-size: 12px;
     margin: 0; }

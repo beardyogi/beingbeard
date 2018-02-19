@@ -8,7 +8,7 @@ class Home extends MY_Controller {
 
 	public function index()
 	{
-		$this->mPageTitle = "Welocme to World's First Beard School";
+		$this->mPageTitle = "Being Beard!";
 		$this->render('home','home_page');
 	}
 }
