@@ -11,6 +11,6 @@ $(".btn-pref .btn").click(function () {
     $(this).removeClass("btn-default").addClass("btn-info");
 });
 if(page_name === 'home'){
-  alert();
+  //alert();
 }
 });
