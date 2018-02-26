@@ -1,4 +1,3 @@
-
 <div class="container top-margin">
 	<div class="row">
 	<div class="col-md-4"></div>
@@ -22,10 +21,13 @@
             </div>
             <div class="social-login">
             <p class="text-center">Sign In With</p>
+
+
+						<div id="status">
+						</div>
     		<ul>
-            <li><a href=""><i class="fa fa-facebook"></i> Facebook</a></li>
-            <li><a href=""><i class="fa fa-google-plus"></i> Google+</a></li>
-            <li><a href=""><i class="fa fa-twitter"></i> Twitter</a></li>
+            <li><fb:login-button scope="public_profile,email" onlogin="checkLoginState();" data-size="large"></fb:login-button></li>
+            <li><div class="g-signin2" data-onsuccess="onSignIn"></div></li>
             </ul>
             </div>
             <div class="clearfix"></div>
@@ -47,10 +49,10 @@
             </div>
             <div class="social-login">
             <p class="text-center"> Register With </p>
-			<ul>
-            <li><a href=""><i class="fa fa-facebook"></i> Facebook</a></li>
-            <li><a href=""><i class="fa fa-google-plus"></i> Google+</a></li>
-            <li><a href=""><i class="fa fa-twitter"></i> Twitter</a></li>
+			      <ul>
+							<li><fb:login-button scope="public_profile,email" onlogin="checkLoginState();" data-size="large"></fb:login-button></li>
+	            <li><div class="g-signin2" data-onsuccess="onSignIn"></div></li>
+
             </ul>
             </div>
         </div>

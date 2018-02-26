@@ -1,4 +1,4 @@
-
+<script> var page_name = "home"; </script>
 <link rel="stylesheet" href="http://simplelineicons.com/css/simple-line-icons.css"/>
     <header class="masthead">
       <div class="container h-100">

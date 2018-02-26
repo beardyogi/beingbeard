@@ -10,4 +10,7 @@ $(".btn-pref .btn").click(function () {
     // $(".tab").addClass("active"); // instead of this do the below
     $(this).removeClass("btn-default").addClass("btn-info");
 });
+if(page_name === 'home'){
+  alert();
+}
 });

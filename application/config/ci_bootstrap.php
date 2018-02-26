@@ -48,6 +48,7 @@ $config['ci_bootstrap'] = array(
 	'stylesheets' => array(
 		'screen' => array(
 			'assets/dist/frontend/bootstrap.min.css',
+			'assets/dist/frontend/masonry.js',
 			'assets/dist/frontend/bootstrap-grid.min.css',
 			'assets/dist/frontend/bootstrap-reboot.min.css',
 			'assets/dist/frontend/font-awesome.min.css',

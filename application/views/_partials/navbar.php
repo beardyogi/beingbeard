@@ -10,30 +10,32 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#download"><i class="fa fa-download" aria-hidden="true"></i>Download</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#features"><i class="fa fa-question-circle" aria-hidden="true"></i>How Does it Work?</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="<?php echo $base_url.'trending'?>"><i class="fa fa-free-code-camp" aria-hidden="true"></i>Campaigns</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact"><i class="fa fa-address-book" aria-hidden="true"></i>Contact</a>
+              <a class="nav-link js-scroll-trigger" href="<?php echo $base_url.'trending'?>">Campaigns</a>
             </li>
             <?php if ($this->ion_auth->logged_in()){?>
             <li class="nav-item">
                 <a class="nav-link js-scroll-trigger" href="<?php echo $base_url.'auth/logout'?>">
-                <i class="fa fa-sign-out" aria-hidden="true"></i>  Logout
+                 Logout
                 </a>
                 </li>
               <?php }else { ?>
                 <li class="nav-item">
                 <a class="nav-link js-scroll-trigger " href="<?php echo $base_url.'auth/login'?>">
-                  <i class="fa fa-sign-in" aria-hidden="true"></i>Login/Signup
+                  </i>Login/Signup
                 </a>
                   </li>
             <?php } ?>
+            <?php /*<li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#download"><i class="fa fa-download" aria-hidden="true"></i>Download</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#features"><i class="fa fa-question-circle" aria-hidden="true"></i>How Does it Work?</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact"><i class="fa fa-address-book" aria-hidden="true"></i>Contact</a>
+            </li>
+             ?>*/ ?>
           </ul>
         </div>
       </div>
