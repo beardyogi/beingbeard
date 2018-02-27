@@ -1,31 +1,31 @@
 <script> var page_name = "home"; </script>
 <section class="features" id="features">
+    <h1 class="text-center"> AROUND THE WORLD </h1>
 <div ng-app="feedApp">
 <div class="container" ng-controller="feedsController">
     <div class="row">
-        <div class="card col-xs-12 col-sm-6 col-md-3 col-lg-3" ng-repeat="x in feeds">
-            <div class="card-header" style="background-image: url('{{x.response.media}}');">
-                <div class="card-header-mask">
-                    <div class="card-header-date">
-                        <div class="card-header-date-day">{{x.feed_date | dateForFilter:'date'}}</div>
-                        <div class="card-header-date-month">{{x.feed_date | dateForFilter}}</div>
+        <div class="home-card col-xs-12 col-sm-6 col-md-3 col-lg-3" ng-repeat="x in feeds">
+            <div class="home-card-header" style="background-image: url('{{x.response.media}}');">
+                <div class="home-card-header-mask">
+                    <div class="home-card-header-date">
+                        <div class="home-card-header-date-day">{{x.feed_date | dateForFilter:'date'}}</div>
+                        <div class="home-card-header-date-month">{{x.feed_date | dateForFilter}}</div>
                     </div>
                 </div>
             </div>
-            <div class="card-body">
-                <div class="card-body-header">
-                    <div class="card-body-header-category">{{x.feed_source}}</div>
+            <div class="home-card-body">
+                <div class="home-card-body-header">
+                    <div class="home-card-body-header-category">{{x.feed_source}}</div>
                     <h1>{{x.brand_name}}</h1>
-                    <p class="card-body-header-sentence">
+                    <p class="home-card-body-header-sentence">
                         They call it <span>"</span>God's Own Country.<span>"</span>
                     </p>
                 </div>
-                <p class="card-body-description">
+                <p class="home-card-body-description">
                     {{x.response.text}}
                 </p>
-                <div class="card-body-footer">
+                <div class="home-card-body-footer">
                     <i class="icon icon-time"></i> {{x.feed_date | dateFormater}}
-                    <i class="icon icon-comment"></i> 39 comments
                 </div>
             </div>
         </div>
@@ -47,17 +47,16 @@ app.controller("feedsController", function($scope,$http) {
         if(res.status==200)
         {
             $scope.feeds = res.data;
+            for (var i = 0; i < $scope.feeds.length; i++) {
+            console.log($scope.feeds[i].response);
+            $scope.feeds[i].response = JSON.parse($scope.feeds[i].response);
+        }
         }
         else
             alert('something went wrong!!');
    })
-   for (var i = 0; i < $scope.feeds.length; i++) {
-       $scope.feeds[i].response = JSON.parse($scope.feeds[i].response);
-   }
+   
 });
-
-
-
 
 
 /********* filter **********/

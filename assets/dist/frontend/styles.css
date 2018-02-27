@@ -480,7 +480,7 @@ img.app-store {
   /*Campaign Detail Page*/
 
 /*feeds*/
-.card {
+.home-card {
     cursor: default;
     /*position: relative;
     width: 371px;
@@ -495,7 +495,7 @@ img.app-store {
     height: 400px; 
 }
 
-.card-header {
+.home-card-header {
     /*width: 371px;*/
     height: 235px;
     //background: url(../images/background.jpg) no-repeat;
@@ -513,7 +513,7 @@ img.app-store {
     background-position: -16px -16px;
 }
 
-.card-header-mask {
+.home-card-header-mask {
     height: 100%;
     -webkit-transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;
@@ -522,11 +522,11 @@ img.app-store {
     transition: all .3s ease-in-out;
 }
 
-.card:hover .card-header-mask {
+.home-card:hover .home-card-header-mask {
     background-color: rgba(0, 0, 0, .6);
 }
 
-.card-header-date, .card-body-header-category {
+.home-card-header-date, .home-card-body-header-category {
     text-transform: uppercase;
     background-color: #EF5A31;
     color: #FFF;
@@ -534,7 +534,7 @@ img.app-store {
     text-align: center;
 }
 
-.card-body-header-category {
+.home-card-body-header-category {
     position: absolute;
     font-size: 13px;
     top: -31px;
@@ -543,7 +543,7 @@ img.app-store {
     line-height: 15px;
 }
 
-.card-header-date {
+.home-card-header-date {
     float: right;
     margin: 20px 20px 0 0;
     border-radius: 50%;
@@ -552,15 +552,15 @@ img.app-store {
     line-height: 15px;
 }
 
-.card-header-date-day {
+.home-card-header-date-day {
     font-size: 18px;
 }
 
-.card-header-date-month {
+.home-card-header-date-month {
     font-size: 11px;
 }
 
-.card-body {
+.home-card-body {
     background-color: #FFF;
     border-radius: 0 0 1px 1px;
     padding: 0 26px 26px 26px;
@@ -568,7 +568,7 @@ img.app-store {
     box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
 }
 
-.card-body-header {
+.home-card-body-header {
     position: absolute;
     left: 14px;
     padding: 26px;
@@ -581,7 +581,7 @@ img.app-store {
     width: 100%;
 }
 
-.card:hover .card-body-header {
+.home-card:hover .home-card-body-header {
     margin-top: -50px;
     padding-top: 0;
     padding-bottom: 0;
@@ -594,18 +594,18 @@ h1 {
     font-weight: bold;
 }
 
-.card-body-header-sentence {
+.home-card-body-header-sentence {
     color: #EF5A31;
     margin-top: 14px;
     font-size: 19px;
     display: none;
 }
 
-.card-body-header-sentence span {
+.home-card-body-header-sentence span {
     font-style: italic;
 }
 
-.card-body-description {
+.home-card-body-description {
     opacity: 0;
     color: #757B82;
     line-height: 22px;
@@ -621,7 +621,7 @@ padding-top: 15px;
 
 }
 
-.card:hover .card-body-description {
+.home-card:hover .home-card-body-description {
     opacity: 1;
     -webkit-transition: all .5s ease-in-out;
     -moz-transition: all .5s ease-in-out;
@@ -630,7 +630,7 @@ padding-top: 15px;
     transition: all .5s ease-in-out;
 }
 
-.card-body-footer {
+.home-card-body-footer {
     position: absolute;
     z-index: 10;
     margin-top: 14px;
@@ -650,7 +650,6 @@ padding-top: 15px;
     margin-top: -3px;
     width: 10px;
     height: 17px;
-    background: url(../images/icon-time.png) no-repeat;
 }
 
 .icon-comment {
@@ -658,7 +657,6 @@ padding-top: 15px;
     margin-left: 12px;
     width: 14px;
     height: 14px;
-    background: url(../images/icon-comment.png) no-repeat;
 }
 /*feeds*/
 
