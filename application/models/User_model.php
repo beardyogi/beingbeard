@@ -30,28 +30,80 @@ class User_model extends MY_Model {
         return false;
     }
   }
-  public function addUser($data){
+  public function loginUser($data){
       $social_id = $data['social_id'];
       $provider = $data['provider'];
-      $email = $data['email'];
-      $first_name = $data['first_name'];
-      $last_name = $data['last_name'];
-      $phone = $data['phone'];
-      $now = $data['created_on'];
-      $user_id =  $this->db->query("select id from users where social_id = '$social_id'")->row()->$id;
-      if(!empty($user_id)){
-
+      if(empty($data['email'])){
+        $email = '';
       }else{
-        
+        $email = $data['email'];
+      }
+      if(empty($data['first_name'])){
+        $first_name = '';
+      }else{
+        $first_name = $data['first_name'];
+      }
+      if(empty($data['last_name'])){
+        $last_name = '';
+      }else{
+        $last_name = $data['last_name'];
       }
 
+      if(!empty($first_name) && !empty($last_name)){
+        $full_name = $first_name.' '.$last_name;
+      }else{
+        $full_name = $data['full_name'];
+      }
+      if(empty($data['phone'])){
+        $phone = '';
+      }else{
+          $phone = $data['phone'];
+      }
+      $now = $data['created_on'];
+      $exist_sql ="select id from users where social_id = '$social_id'";
+      $query = $this->db->query($exist_sql);
+      if ( $query->num_rows() > 0 ){
+        $update_sql = "UPDATE `users` SET `last_login` = '$now', `active`= 1 WHERE `users`.`social_id` = '$social_id'";
+        $query = $this->db->query($update_sql);
+        if($query == 1 ){
+          $result['social_id'] = $social_id;
+          $result['status']='true';
+          $result['msg'] = "user logged in successfully";
+        }else{
+          $result['status']='false';
+          $result['msg'] = "user login query failed";
+        }
 
-       return $result;
+      }else{
+        $insert_sql = "INSERT INTO `users` ( `social_id`, `provider`, `first_name`, `last_name`,`full_name`,`phone`,`active`,`last_login`,`created_on`) VALUES ( '$social_id', '$provider', '$first_name','$last_name', '$full_name','$phone','1','$now','$now')";
+        $query = $this->db->query($insert_sql);
+        if($query == 1){
+          $update_sql = "UPDATE `users` SET `last_login` = '$now', `active`= 1 WHERE `users`.`social_id` = '$social_id'";
+          $query = $this->db->query($update_sql);
+          if($query == 1){
+            $result['social_id'] = $social_id;
+            $result['status']='true';
+            $result['msg'] = "user adeed  successfully";
+          }else{
+            $result['status']='false';
+            $result['msg'] = "user login query failed";
+          }
+          $result['status']='true';
+          $result['msg'] = "user added in successfully";
+      }else{
+        $result['status']='false';
+        $result['msg'] = "user insert query failed";
+      }
+
   }
+  return $result;
+}
 
 
-
+/*
   public function loginUser($data){
+      print_r(hello);
+      die();
       $user_id = $data['user_id'];
       $now = $data['last_login'];
       $expires_on = strtotime('+6 month', $now);
@@ -159,7 +211,7 @@ class User_model extends MY_Model {
         }
          return $result;
     }
-
+ */
 
 
 }

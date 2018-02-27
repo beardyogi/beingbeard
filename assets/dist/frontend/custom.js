@@ -13,4 +13,8 @@ $(".btn-pref .btn").click(function () {
 if(page_name === 'home'){
   //alert();
 }
+
+if(page_name === 'login'){
+
+}
 });

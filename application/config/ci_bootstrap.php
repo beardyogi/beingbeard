@@ -52,8 +52,8 @@ $config['ci_bootstrap'] = array(
 			'assets/dist/frontend/bootstrap-grid.min.css',
 			'assets/dist/frontend/bootstrap-reboot.min.css',
 			'assets/dist/frontend/font-awesome.min.css',
-			'assets/dist/frontend/styles.css',
 			'assets/dist/frontend/device-mockups/device-mockups.min.css',
+			'assets/dist/frontend/styles.css'
 
 		),
 	),

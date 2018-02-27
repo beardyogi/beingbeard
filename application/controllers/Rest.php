@@ -15,7 +15,7 @@ class Rest extends MY_Controller {
       $this->load->helper('date');
       $data['created_on'] = now('Asia/Calcutta');
       $this->load->model('user_model');
-      $result = $this->user_model->addUser($data);
+      $result = $this->user_model->loginUser($data);
       $this->output
       ->set_content_type('application/json') //set Json header
       ->set_output(json_encode($result));
