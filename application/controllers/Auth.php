@@ -6,60 +6,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 class Auth extends MY_Controller {
 
-	public function index()
-	{
-		$this->render('login', 'full_width');
-	}
+	public function index()  
+	{   
 
-	public function login()
-	{
-		$identity = $this->input->post('username');
-		$password = $this->input->post('password');
-		$remember = ($this->input->post('remember')=='on');
-		if ($this->ion_auth->login($identity, $password, $remember))
-		{
-			// login succeed
-			$messages = $this->ion_auth->messages();
-			//$this->mViewData['messages'] = $message;
-			redirect('/trending');
-		}
-		else
-		{
-			// login failed
-			$messages = $this->ion_auth->errors();
-			//$this->mViewData['messages'] = $message;
-			redirect('auth');
-
-		}
-
-	}
-
-	public function logout()
-	{
-		// redirect them to the login page
-		$this->ion_auth->logout();
-		$this->session->set_flashdata('message', $this->ion_auth->messages());
-		redirect('home', 'refresh');
-	}
-
-	public function signup()
-	{
-		$email = $this->input->post('email');
-		$username = $this->input->post('username');
-		$password = $this->input->post('password');
-		$first_name = $this->input->post('first_name');
-		$last_name = $this->input->post('last_name');
-		$additional_data = array(
-								'first_name' => '$first_name',
-								'last_name' => '$last_name',
-								);
-		$group = array('1');
-		if($this->ion_auth->register($username, $password, $email, $additional_data, $group)){
-			redirect('auth');
-		}else{
-			$messages = $this->ion_auth->errors();
-			redirect('auth');
-		}
+        if(!empty($this->session->userdata('logged_in'))){
+        $login_status = $this->session->userdata['logged_in'];
+        if($login_status == 'true'){
+            redirect('home');
+        }else{
+            $this->mPageTitle = "login";
+		    $this->render('login', 'login');
+        }
+        
+    }else{
+            $this->mPageTitle = "login";
+		    $this->render('login', 'login');
+        }
+        
+        
 	}
 
 }

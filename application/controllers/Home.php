@@ -7,8 +7,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Home extends MY_Controller {
 
 	public function index()
-	{
-		$this->mPageTitle = "Being Beard!";
-		$this->render('home','home_page');
+	{   
+        $login_status = $this->session->userdata['logged_in'];
+        if($login_status == 'true'){
+            $this->mPageTitle = "Being Beard!";
+		    $this->render('home','home_page');
+        }else{
+            redirect('auth');
+        }
+		
 	}
 }

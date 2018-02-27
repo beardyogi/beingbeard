@@ -41,12 +41,11 @@
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
-	<script src="https://apis.google.com/js/platform.js" async defer></script>
 	<script>
 
 	</script>
 	</head>
-	<body class="<?php echo $body_class; ?>">
+	<body class="<?php echo $body_class; if($page_title == 'login'){echo ' bg';} ?> ">
 
 	<script>
 	function checkLoginState() {
@@ -65,7 +64,8 @@
 					var sendInfo = {
            full_name: response.name,
            social_id: fb_id,
-					 provider: 'facebook'
+           provider: 'facebook',
+           token: token
        };
 
        $.ajax({
@@ -74,9 +74,8 @@
            dataType: "json",
 					 data: sendInfo,
            success: function (response) {
-               if (resposne) {
-                   console.log(response);
-
+               if (response.status === 'true') {
+                   window.location.href="<?php echo $base_url.'home'; ?> ";
                } else {
 
                }

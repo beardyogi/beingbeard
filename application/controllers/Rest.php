@@ -4,24 +4,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * Home page
  */
-class Rest extends MY_Controller {
+class Rest extends API_Controller {
   public function index()
 	{
 
 	}
   public function addUser(){
+      header('Access-Control-Allow-Origin: *');
       $data = array();
       $data = $this->input->post();
       $this->load->helper('date');
       $data['created_on'] = now('Asia/Calcutta');
       $this->load->model('user_model');
       $result = $this->user_model->loginUser($data);
+      if($result['status'] == 'true'){
+          $data['logged_in'] = 'true';
+          $this->session->set_userdata($data);
+      }
       $this->output
       ->set_content_type('application/json') //set Json header
       ->set_output(json_encode($result));
   }
 
   public function getFeeds(){
+    header('Access-Control-Allow-Origin: *');
     $this->load->model('feeds_model');
     $result = $this->feeds_model->getFeeds();
     $this->output
@@ -30,19 +36,8 @@ class Rest extends MY_Controller {
 
   }
 
-  public function loginUser(){
-      $data = array();
-      $data = $this->input->post();
-      $this->load->helper('date');
-      $data['last_login'] = now('Asia/Calcutta');
-      $this->load->model('user_model');
-      $result = $this->user_model->loginUser($data);
-      $this->output
-      ->set_content_type('application/json') //set Json header
-      ->set_output(json_encode($result));
-  }
-
   public function logoutUser(){
+      header('Access-Control-Allow-Origin: *');
       $data = array();
       $data = $this->input->post();
       $this->load->helper('date');
@@ -55,6 +50,7 @@ class Rest extends MY_Controller {
   }
 
   public function getProfile(){
+      header('Access-Control-Allow-Origin: *');
       $social_id = $this->input->get('social_id', TRUE);
       $this->load->model('user_model');
       $data = $this->user_model->getProfile($social_id);

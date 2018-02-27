@@ -31,6 +31,7 @@ class User_model extends MY_Model {
     }
   }
   public function loginUser($data){
+      $now = $data['created_on'];
       $social_id = $data['social_id'];
       $provider = $data['provider'];
       if(empty($data['email'])){
@@ -99,6 +100,22 @@ class User_model extends MY_Model {
   return $result;
 }
 
+public function getProfile($social_id){
+      $id = $social_id;
+      $profile_sql = "select social_id,first_name,last_name,email,phone,full_name,created_on,last_login from users where social_id = '$id'";
+      $query = $this->db->query($profile_sql);
+      if ( $query->num_rows() > 0 )
+      {
+       $result['data'] = $query->result();
+       $result['status']='true';
+       $result['msg'] = "user profile exists";
+      }
+      else{
+       $result['status']='false';
+       $result['msg'] = "user profile does not exists";
+      }
+      return $result;
+  }
 
 /*
   public function loginUser($data){
@@ -174,22 +191,6 @@ class User_model extends MY_Model {
        return $result;
   }
 
-  public function getProfile($social_id){
-      $id = $social_id;
-      $profile_sql = "select social_id,first_name,last_name,email,phone, from users where social_id = '$id'";
-      $query = $this->db->query($profile_sql);
-      if ( $query->num_rows() > 0 )
-      {
-       $result['data'] = $query->result();
-       $result['status']='true';
-       $result['msg'] = "user profile exists";
-      }
-      else{
-       $result['status']='false';
-       $result['msg'] = "user profile does not exists";
-      }
-      return $result;
-  }
 
     public function detect($social_id,$type,$orig_img_url){
         date_default_timezone_set("Asia/Kolkata");

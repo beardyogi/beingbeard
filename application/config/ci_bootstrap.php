@@ -33,9 +33,9 @@ $config['ci_bootstrap'] = array(
 	// Default scripts to embed at page head or end
 	'scripts' => array(
 		'head'	=> array(
+            'assets/dist/frontend/jquery.min.js'
 		),
 		'foot'	=> array(
-			'assets/dist/frontend/jquery.min.js',
 			'assets/dist/frontend/popper.min.js',
 			'assets/dist/frontend/bootstrap.min.js',
 			'assets/dist/frontend/jquery.easing.min.js',
@@ -48,7 +48,6 @@ $config['ci_bootstrap'] = array(
 	'stylesheets' => array(
 		'screen' => array(
 			'assets/dist/frontend/bootstrap.min.css',
-			'assets/dist/frontend/masonry.js',
 			'assets/dist/frontend/bootstrap-grid.min.css',
 			'assets/dist/frontend/bootstrap-reboot.min.css',
 			'assets/dist/frontend/font-awesome.min.css',
