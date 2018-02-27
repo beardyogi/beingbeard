@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * Home page
  */
-class Rest extends API_Controller {
+class Rest extends MY_Controller {
   public function index()
 	{
 
