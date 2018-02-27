@@ -39,11 +39,15 @@ class Rest extends MY_Controller {
   public function logoutUser(){
       header('Access-Control-Allow-Origin: *');
       $data = array();
-      $data = $this->input->post();
       $this->load->helper('date');
+      $data['social_id'] = $this->session->userdata['social_id'];
       $data['last_login'] = now('Asia/Calcutta');
-      $this->load->model('user_model');
+       $this->load->model('user_model');
       $result = $this->user_model->logoutUser($data);
+      if($result['status'] == 'true'){
+      $this->session->sess_destroy();
+      $result = $this->user_model->logoutUser($data);
+      }
       $this->output
       ->set_content_type('application/json') //set Json header
       ->set_output(json_encode($result));

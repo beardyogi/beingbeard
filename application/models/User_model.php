@@ -117,6 +117,31 @@ public function getProfile($social_id){
       return $result;
   }
 
+    public function logoutUser($data){
+      $social_id = $data['social_id'];
+      $now = $data['last_login'];
+      $profile_sql = "select * from users where social_id = '$social_id'";
+      $query = $this->db->query($profile_sql);
+      if ( $query->num_rows() > 0 )
+      {
+        $update_sql = "UPDATE `users` SET `last_login` = '$now', `active`= 0 WHERE `users`.`social_id` = '$social_id'";
+        $query = $this->db->query($update_sql);
+        if($query == 1){
+          $result['status']='true';
+          $result['msg'] = "user logged out successfully";
+        }else{
+          $result['status']='false';
+          $result['msg'] = "user logout query failed";
+        }
+      }
+      else{
+          $result['status']='false';
+          $result['msg'] = "user logout query failed";
+
+      }
+       return $result;
+  }
+
 /*
   public function loginUser($data){
       print_r(hello);
@@ -168,28 +193,7 @@ public function getProfile($social_id){
        return $result;
   }
 
-  public function logoutUser($data){
-      $social_id = $data['social_id'];
-      $now = $data['last_login'];
-      $profile_sql = "select * from users where social_id = '$social_id'";
-      $query = $this->db->query($profile_sql);
-      if ( $query->num_rows() > 0 )
-      {
-        $update_sql = "UPDATE `users` SET `last_login` = '$now', `active`= 0 WHERE `users`.`social_id` = '$social_id'";
-        $query = $this->db->query($update_sql);
-        if($query == 1){
-          $result['status']='true';
-          $result['msg'] = "user logged out successfully";
-        }else{
-          $result['status']='false';
-          $result['msg'] = "user logout query failed";
-        }
-      }
-      else{
 
-      }
-       return $result;
-  }
 
 
     public function detect($social_id,$type,$orig_img_url){

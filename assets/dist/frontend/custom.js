@@ -20,22 +20,14 @@ if(page_name === 'login'){
 
 if(page_name === 'profile'){
   $(".logout").click(function(e){
-      function facebooklogout() {
-    try {
-        if (FB.getAccessToken() != null) {
-            FB.logout(function(response) {
-                // user is now logged out from facebook do your post request or just redirect
-                window.location.replace("<?php echo $base_url ?>");
-            });
-        } else {
-            // user is not logged in with facebook, maybe with something else
-            window.location.replace(href);
-        }
-    } catch (err) {
-        // any errors just logout
-        window.location.replace(href);
-    }
-   }
+      $.get( 'rest/logoutUser', function(response) {
+          if (response.status === 'true') {
+                   window.location.href="auth";
+               } else {
+
+               }
+         
+});
   }) ;
     
     }
