@@ -5,6 +5,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<link rel="icon" href="<?php echo $base_url?>favicon.ico" type='image/x-icon'>
+    <meta property="og:title" content="Being Beard - World's First Beard School." />
+    <meta property="og:type" content="Website" />
+    <meta property="og:url" content="<?php echo $base_url; ?>" />
+    <meta property="og:image" content="http://www.beingbeard.com/welcome/assets/dist/frontend/images/logo.png" />
 	<base href="<?php echo $base_url; ?>" />
 
 
