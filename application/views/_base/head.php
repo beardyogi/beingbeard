@@ -10,6 +10,13 @@
     <meta property="og:url" content="<?php echo $base_url; ?>" />
     <meta property="og:image" content="http://www.beingbeard.com/welcome/assets/dist/frontend/images/logo.png" />
 	<base href="<?php echo $base_url; ?>" />
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-7935544684005024",
+        enable_page_level_ads: true
+      });
+    </script>
 
 	<?php
 		foreach ($meta_data as $name => $content)
