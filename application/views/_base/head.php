@@ -11,7 +11,6 @@
     <meta property="og:image" content="http://www.beingbeard.com/welcome/assets/dist/frontend/images/logo.png" />
 	<base href="<?php echo $base_url; ?>" />
 
-
 	<?php
 		foreach ($meta_data as $name => $content)
 		{
@@ -52,6 +51,24 @@
 	<body class="<?php echo $body_class; if($page_title == 'login'){echo ' bg';} ?> ">
 
 	<script>
+    var params = function() {
+    function urldecode(str) {
+        return decodeURIComponent((str+'').replace(/\+/g, '%20'));
+    }
+
+    function transformToAssocArray( prmstr ) {
+        var params = {};
+        var prmarr = prmstr.split("&");
+        for ( var i = 0; i < prmarr.length; i++) {
+            var tmparr = prmarr[i].split("=");
+            params[tmparr[0]] = urldecode(tmparr[1]);
+        }
+        return params;
+    }
+
+    var prmstr = window.location.search.substr(1);
+    return prmstr != null && prmstr != "" ? transformToAssocArray(prmstr) : {};
+}();
 	function checkLoginState() {
 	FB.getLoginStatus(function(response) {
 	  console.log(response);
@@ -79,7 +96,13 @@
 					 data: sendInfo,
            success: function (response) {
                if (response.status === 'true') {
-                   window.location.href="<?php echo $base_url.'home'; ?> ";
+                   var redirect = params['redirect'];
+                   if(redirect != ''){
+                       window.location.href="<?php echo $base_url?>"+redirect;
+                   }else{
+                       window.location.href="<?php echo $base_url.'home'; ?> ";
+                   }
+                   
                } else {
 
                }

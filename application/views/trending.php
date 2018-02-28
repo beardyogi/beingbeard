@@ -1,3 +1,4 @@
+<script>var page_name = 'campaigns'</script>
 <div class="container top-margin" >
   <h3 class="text-center"><strong>TRENDING CAMPAIGNS</strong></h3>
   <div class="row">
@@ -13,12 +14,12 @@
 
                   <div class="card-content">
                       <span class="card-title"><?php echo $key['campaign_name'] ?></span>
-                      <?php if ($this->ion_auth->logged_in()){?>
+                      <?php if($this->session->userdata('logged_in')){?>
                       <a href="<?php echo $base_url.'campaigns/detail?campaign_id='.$key['id']?>"><button type="button" id="<?php echo strtolower($key['campaign_name']) ?>" class="btn btn-warning pull-right" aria-label="Left Align">
                           Try
                       </button></a>
                     <?php }else{ ?>
-                      <a href="<?php echo $base_url.'auth'?>"><button type="button" id="<?php echo strtolower($key['campaign_name']) ?>" class="btn btn-warning pull-right" aria-label="Left Align">
+                      <a href="<?php echo $base_url.'auth'?>?redirect=trending"><button type="button" id="<?php echo strtolower($key['campaign_name']) ?>" class="btn btn-warning pull-right" aria-label="Left Align">
                           Try
                       </button></a>
                     <?php } ?>
