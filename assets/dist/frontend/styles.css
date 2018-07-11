@@ -182,7 +182,8 @@ section.download {
       font-size: 70px; } }
 
 section.features .section-heading {
-  margin-bottom: 100px; }
+  /* margin-bottom: 100px; */
+} 
   section.features .section-heading h2 {
     margin-top: 0; }
   section.features .section-heading p {
@@ -200,8 +201,8 @@ section.features .device-container {
       margin-bottom: 0; } }
 
 section.features .feature-item {
-  padding-top: 50px;
-  padding-bottom: 50px;
+  /* padding-top: 50px;
+  padding-bottom: 50px; */
   text-align: center; }
   section.features .feature-item h3 {
     font-size: 30px; }
@@ -464,6 +465,9 @@ img.app-store {
     background-repeat: no-repeat;
     background-image: url(macbook/macbook.png);
 }
+.white{
+  color: #fff;
+}
 /*login page*/
 
   /*Campaign Detail Page*/
@@ -474,9 +478,7 @@ img.app-store {
     .card-info {
     margin-top: 5%;
   }
-    .like{
-
-    }
+  
   /*Campaign Detail Page*/
 
 /*feeds*/
@@ -498,7 +500,7 @@ img.app-store {
 .home-card-header {
     /*width: 371px;*/
     height: 235px;
-    //background: url(../images/background.jpg) no-repeat;
+    /*background: url(../images/background.jpg) no-repeat;*/
     background-size: 371px 235px;
     border-radius: 1px 1px 0 0;
     -webkit-transition: all .3s ease-in-out;

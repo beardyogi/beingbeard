@@ -39,14 +39,14 @@
           <i class="fa fa-bars"></i>
         </button>
         
-        <div class="collapse navbar-collapse" id="navbarResponsive">
+        <?php /* <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger link" href="<?php echo $base_url.'trending'?>">Campaigns</a>
             </li>
               
           </ul>
-        </div>
+        </div> */ ?>
          <?php } ?>
       </div>
     </nav>
