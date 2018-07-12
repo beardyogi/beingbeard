@@ -1,5 +1,6 @@
 <script> var page_name = "home"; </script>
-<link rel="stylesheet" href="http://simplelineicons.com/css/simple-line-icons.css"/>
+<link rel="stylesheet" href="https://simplelineicons.com/css/simple-line-icons.css"/>
+<link rel="stylesheet" href="<?php echo $base_url.'assets/dist/frontend/device-mockups/device-mockups.min.css'?>"/>
     <?php /* <header class="masthead">
       <div class="container h-100">
         <div class="row h-100">
@@ -92,7 +93,7 @@
       </div>
     </section>
 
-    <section class="download bg-primary text-center" id="download">
+    <?php /* <section class="download bg-primary text-center" id="download">
       <div class="container">
         <div class="row">
           <div class="col-md-8 mx-auto">
@@ -115,7 +116,7 @@
         </div>
       </div>
       <div class="overlay"></div>
-    </section> -->
+    </section> --> */ ?>
 
     <section class="contact" id="contact">
       <div class="container">

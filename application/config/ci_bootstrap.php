@@ -26,8 +26,8 @@ $config['ci_bootstrap'] = array(
 	// Default meta data
 	'meta_data'	=> array(
 		'author'		=> 'Beard Yogi',
-		'description'	=> 'World Of Men',
-		'keywords'		=> 'Being Beard Men World'
+		'description'	=> 'Beard School',
+		'keywords'		=> 'Being Beard School Inner Peace Beards Men World'
 	),
 
 	// Default scripts to embed at page head or end
@@ -51,7 +51,6 @@ $config['ci_bootstrap'] = array(
 			'assets/dist/frontend/bootstrap-grid.min.css',
 			'assets/dist/frontend/bootstrap-reboot.min.css',
 			'assets/dist/frontend/font-awesome.min.css',
-			'assets/dist/frontend/device-mockups/device-mockups.min.css',
 			'assets/dist/frontend/styles.css'
 
 		),
